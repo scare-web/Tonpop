@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GAME START</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    #2878ff,
+    #773cff,
+    #e64bff
+  );
+}
+
+.container {
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 45px;
+  color: white;
+  text-shadow: 0 4px 10px #2228;
+  margin-bottom: 15px;
+}
+
+p {
+  color: white;
+  font-size: 17px;
+  margin-bottom: 40px;
+}
+
+button {
+  padding: 18px 55px;
+  font-size: 23px;
+  font-weight: bold;
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    #00c6ff,
+    #0072ff
+  );
+
+  border: 3px solid white;
+  border-radius: 15px;
+
+  box-shadow:
+    0 7px 0 #1646a0,
+    0 10px 25px #0005;
+
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+button:active {
+  transform: translateY(6px);
+  box-shadow: 0 1px 0 #1646a0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🎮 GAME START</h1>
+
+  <p>กดปุ่มเพื่อเริ่มเกม</p>
+
+  <button onclick="playScare()">
+    START GAME
+  </button>
+
+</div>
+
+<audio id="scare" preload="auto">
+  <source src="./ตาลุง.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playScare() {
+
+  const sound = document.getElementById("scare");
+
+  sound.currentTime = 0;
+
+  sound.play().catch(error => {
+    console.error("ไม่สามารถเล่นเสียงได้:", error);
+  });
+
+}
+</script>
+
+</body>
+</html>
